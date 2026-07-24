@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Funding Finders | Navigate College Costs with Confidence</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231e3a5f'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='sans-serif'>CF</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #1e3a5f;
+            --navy-light: #2d4a6f;
+            --navy-dark: #152a45;
+            --coral: #e8836b;
+            --coral-light: #f09a85;
+            --teal: #00E6C3;
+            --purple-card: #3d2d6b;
+            --purple-light: #8E7BB7;
+            --text: #1e3a5f;
+            --text-light: #5a6a7a;
+            --text-muted: #8a9aaa;
+            --bg: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-warm: #faf8fc;
+            --border: #e8e8ee;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--navy);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+           HEADER
+        ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-text {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .logo-text span {
+            color: var(--coral);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--coral);
+        }
+
+        .nav-cta {
+            background: var(--coral);
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--coral-light);
+            transform: translateY(-2px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--navy);
+            margin: 6px 0;
+        }
+
+        /* ============================================
+           BUTTONS
+        ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--coral);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--coral-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 131, 107, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+
+        .btn-outline:hover {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--navy);
+        }
+
+        .btn-white:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           HERO
+        ============================================ */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.25rem, 4vw, 3rem);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--coral);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .hero-badge svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--coral);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .hero-micro {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(30, 58, 95, 0.15);
+        }
+
+        /* ============================================
+           ADMISSIONS RESULTS (Colorful Cards)
+        ============================================ */
+        .results-cards-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .results-cards-section .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .results-cards-section .section-header h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+        }
+
+        .results-cards-section .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 16px auto 0;
+        }
+
+        .results-cards-section .section-header p .highlight {
+            color: var(--coral);
+        }
+
+        .results-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .result-card-colorful {
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .result-card-colorful.purple {
+            background: var(--purple-card);
+        }
+
+        .result-card-colorful.teal {
+            background: #4a8b8b;
+        }
+
+        .result-card-colorful.navy {
+            background: var(--navy-dark);
+        }
+
+        .result-card-colorful.lavender {
+            background: var(--purple-light);
+        }
+
+        .result-card-colorful .value {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .result-card-colorful .label {
+            font-size: 1rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .result-card-colorful .label .underline {
+            text-decoration: underline;
+            text-decoration-color: var(--teal);
+            text-underline-offset: 4px;
+        }
+
+        .result-card-colorful .sublabel {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           VIDEO TESTIMONIALS
+        ============================================ */
+        .testimonials-video-section {
+            padding: 80px 0;
+            background: var(--navy);
+        }
+
+        .testimonials-video-section h2 {
+            color: white;
+            text-align: center;
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 50px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(30,58,95,0.3) 0%, rgba(30,58,95,0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-card-overlay .play-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .video-card-overlay .play-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            margin-left: 4px;
+        }
+
+        .video-card-overlay .label {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .video-card-overlay .name {
+            font-size: 1.75rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .video-card-overlay .school {
+            font-size: 14px;
+            color: var(--coral);
+            font-weight: 700;
+        }
+
+        .testimonials-bottom {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .google-review-badge {
+            text-align: center;
+        }
+
+        .google-review-badge .stars-label {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .google-review-badge .stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .google-review-badge .stars svg {
+            width: 28px;
+            height: 28px;
+            fill: #FFB800;
+        }
+
+        .google-review-badge .google-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .google-review-badge .google-logo span:nth-child(1) { color: #4285F4; }
+        .google-review-badge .google-logo span:nth-child(2) { color: #EA4335; }
+        .google-review-badge .google-logo span:nth-child(3) { color: #FBBC05; }
+        .google-review-badge .google-logo span:nth-child(4) { color: #4285F4; }
+        .google-review-badge .google-logo span:nth-child(5) { color: #34A853; }
+        .google-review-badge .google-logo span:nth-child(6) { color: #EA4335; }
+
+        .google-review-badge .rating-text {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+
+        .testimonial-slider {
+            position: relative;
+        }
+
+        .testimonial-slide {
+            text-align: center;
+        }
+
+        .testimonial-slide .stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-slide .stars svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--coral);
+        }
+
+        .testimonial-slide .quote {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-slide .author {
+            color: var(--coral);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-slide .school {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        /* ============================================
+           DO YOU SECTION
+        ============================================ */
+        .do-you-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .do-you-section h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            margin-bottom: 50px;
+        }
+
+        .do-you-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .do-you-title {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 4rem;
+            color: var(--coral);
+            text-align: center;
+        }
+
+        .do-you-list {
+            list-style: none;
+        }
+
+        .do-you-list li {
+            padding: 16px 0;
+            font-size: 1.1rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .do-you-list li .highlight {
+            color: var(--coral);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           SERVICES GRID
+        ============================================ */
+        .services-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .services-header {
+            background: var(--navy);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .services-header h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .services-header p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .services-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .service-stat {
+            padding: 24px 16px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .service-stat.purple {
+            background: var(--purple-card);
+            color: white;
+        }
+
+        .service-stat.teal {
+            background: var(--teal);
+            color: var(--navy);
+        }
+
+        .service-stat.dark {
+            background: var(--navy-dark);
+            color: white;
+        }
+
+        .service-stat.coral {
+            background: var(--coral);
+            color: white;
+        }
+
+        .service-stat .highlight {
+            text-decoration: underline;
+            text-decoration-color: var(--teal);
+            text-underline-offset: 3px;
+        }
+
+        /* ============================================
+           WHAT SETS US APART
+        ============================================ */
+        .apart-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .apart-section .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .apart-section .section-header h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            margin-bottom: 16px;
+        }
+
+        .apart-section .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .apart-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .apart-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .apart-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .apart-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .apart-text p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .apart-image {
+            position: relative;
+        }
+
+        .apart-image img {
+            border-radius: 16px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .apart-image .stat-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--coral);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .apart-image .stat-badge .value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: block;
+        }
+
+        .apart-image .stat-badge .label {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        /* ============================================
+           US VS THEM
+        ============================================ */
+        .comparison-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+            margin-bottom: 50px;
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .comparison-col {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            border: 2px solid var(--border);
+        }
+
+        .comparison-col.us {
+            border-color: var(--purple-light);
+        }
+
+        .comparison-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comparison-col.us h3 {
+            border-bottom-color: var(--purple-light);
+        }
+
+        .comparison-col h3 img {
+            height: 24px;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .comparison-list svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .comparison-list .check {
+            fill: var(--teal);
+        }
+
+        .comparison-list .x {
+            fill: #dc3545;
+        }
+
+        /* Team Carousel */
+        .team-carousel {
+            overflow: hidden;
+        }
+
+        .team-track {
+            display: flex;
+            gap: 24px;
+            animation: scrollTeam 30s linear infinite;
+        }
+
+        @keyframes scrollTeam {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .team-card {
+            flex-shrink: 0;
+            text-align: center;
+            width: 180px;
+        }
+
+        .team-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px;
+            border: 4px solid white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .team-card p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           FAQ
+        ============================================ */
+        .faq-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-section .section-header {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .faq-section .section-header h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+        }
+
+        .faq-section .section-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-top: 12px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: rgba(0,0,0,0.02);
+        }
+
+        .faq-question h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0;
+            color: var(--navy);
+            flex: 1;
+            padding-right: 16px;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .faq-icon::before {
+            content: '▼';
+            font-size: 10px;
+            color: var(--coral);
+            transition: transform 0.3s;
+            display: block;
+        }
+
+        .faq-item.active .faq-icon::before {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 24px 20px;
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .faq-answer a {
+            color: var(--coral);
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           CTA FORM
+        ============================================ */
+        .cta-form-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+        }
+
+        .cta-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .cta-form-content h2 {
+            color: white;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            margin-bottom: 16px;
+        }
+
+        .cta-form-content > p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        .cta-checklist {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .cta-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-weight: 600;
+            padding: 10px 0;
+        }
+
+        .cta-checklist svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--teal);
+            flex-shrink: 0;
+        }
+
+        .cta-form-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .cta-form-box h3 {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--navy);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: inherit;
+            font-size: 15px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--coral);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 16px;
+            font-size: 16px;
+        }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        .footer {
+            background: var(--navy-dark);
+            color: white;
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+        }
+
+        .footer-brand .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .footer-brand .logo-text span {
+            color: var(--coral);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        .footer-cta {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-cta p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 24px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .footer-bottom a {
+            color: var(--teal);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* ============================================
+           PAGE TEMPLATES
+        ============================================ */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-hero {
+            padding: 140px 0 60px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .page-section {
+            padding: 80px 0;
+        }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .do-you-grid,
+            .apart-item,
+            .cta-form-grid,
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .apart-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .results-cards-grid,
+            .services-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 60px;
+            }
+
+            .testimonials-bottom {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+                transform: translateY(-120%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+
+            .nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .results-cards-grid,
+            .services-grid,
+            .services-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .do-you-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo" data-page="home">
+                <svg width="45" height="45" viewBox="0 0 45 45" fill="none">
+                    <rect width="45" height="45" rx="10" fill="#1e3a5f"/>
+                    <path d="M22.5 10L10 16l12.5 6 12.5-6-12.5-6zM10 29l12.5 6 12.5-6M10 22.5l12.5 6 12.5-6" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                <span class="logo-text">College<span>Funding</span>Finders</span>
+            </a>
+            
+            <nav class="nav" id="nav">
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="how-it-works">How It Works</a>
+                <a href="#" class="nav-link" data-page="tools">Tools</a>
+                <a href="#" class="nav-link" data-page="faq">FAQ</a>
+                <a href="#" class="nav-link" data-page="contact">Contact</a>
+                <a href="https://www.collegiatefundingsolutions.com" target="_blank" class="nav-cta">Start My Plan</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <main class="page active" id="page-home">
+        
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1><span class="highlight">Your Trusted</span> College Funding Resource</h1>
+                        <p class="hero-description">We help families navigate the complex world of college costs. Our comprehensive tools provide clarity on financial aid, college search, and cost comparison—so you can make confident decisions about your future.</p>
+                        
+                        <div class="hero-badges">
+                            <span class="hero-badge">
+                                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                4,000+ Colleges Searchable
+                            </span>
+                            <span class="hero-badge">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                100% Free to Start
+                            </span>
+                        </div>
+                        
+                        <div class="hero-buttons">
+                            <a href="https://www.collegiatefundingsolutions.com" target="_blank" class="btn btn-primary">
+                                Start My Personalized College Plan
+                            </a>
+                            <a href="#" class="btn btn-outline" data-page="how-it-works">See How It Works</a>
+                        </div>
+                        <p class="hero-micro">Free • Personalized • No obligation</p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=450&fit=crop" alt="Happy students celebrating graduation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admissions Results Cards -->
+        <section class="results-cards-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>College Funding Results</h2>
+                    <p>Families who use our tools to understand their options see significantly better outcomes. Those who take the time to <span class="highlight">understand their financial aid eligibility</span> are the ones who find the best value.</p>
+                </div>
+                
+                <div class="results-cards-grid">
+                    <div class="result-card-colorful purple">
+                        <div class="value">$50K+</div>
+                        <div class="label">Average <span class="underline">Savings</span> Found</div>
+                    </div>
+                    <div class="result-card-colorful teal">
+                        <div class="value">85%</div>
+                        <div class="label">Found More <span class="underline">Aid</span> Than Expected</div>
+                    </div>
+                    <div class="result-card-colorful navy">
+                        <div class="value">4,000+</div>
+                        <div class="label">Colleges in Our Database</div>
+                    </div>
+                    <div class="result-card-colorful lavender">
+                        <div class="value">98%</div>
+                        <div class="label">Would <span class="underline">Recommend</span> Us</div>
+                        <div class="sublabel">(Based on user surveys)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Testimonials -->
+        <section class="testimonials-video-section">
+            <div class="container">
+                <h2>Families Share Their Experience</h2>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop&crop=face" alt="Sarah's success story">
+                        <div class="video-card-overlay">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="label">Success Story</span>
+                            <span class="name">SARAH</span>
+                            <span class="school">University of Michigan</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" alt="The Johnson family journey">
+                        <div class="video-card-overlay">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="label">Our Funding Journey</span>
+                            <span class="name">THE JOHNSONS</span>
+                            <span class="school">Parent Perspective</span>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=300&fit=crop&crop=face" alt="Marcus's success story">
+                        <div class="video-card-overlay">
+                            <div class="play-btn">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="label">Success Story</span>
+                            <span class="name">MARCUS</span>
+                            <span class="school">Boston University</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-bottom">
+                    <div class="google-review-badge">
+                        <div class="stars-label">Highly Rated</div>
+                        <div class="stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="rating-text">Powered by Collegiate Funding Solutions</div>
+                    </div>
+                    
+                    <div class="testimonial-slider">
+                        <div class="testimonial-slide">
+                            <div class="stars">
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <p class="quote">"I am incredibly grateful I had these tools throughout my college search. Truly I wouldn't have been able to find the right fit without them. They kept me organized and helped me understand what we could actually afford."</p>
+                            <p class="author">Jennifer M.</p>
+                            <p class="school">Parent of college freshman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Do You Section -->
+        <section class="do-you-section">
+            <div class="container">
+                <h2>Is College Funding Finders Right for You?</h2>
+                
+                <div class="do-you-grid">
+                    <div class="do-you-title">Do you...</div>
+                    <ul class="do-you-list">
+                        <li>Find the college funding process <span class="highlight">overwhelming</span> and not know where to start?</li>
+                        <li>Feel unsure how you'll <span class="highlight">afford</span> the best schools?</li>
+                        <li>Worry you don't fully understand how financial aid works?</li>
+                        <li>Want to avoid feeling <span class="highlight">stressed</span> by hidden costs?</li>
+                        <li>Feel worried you'll miss a deadline or important detail?</li>
+                        <li>Wish you had expert guidance without the expensive consultant fees?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="services-header">
+                    <h3>Your Complete College Funding Resource</h3>
+                    <p>Access comprehensive tools and guidance to understand your options—from college search to financial aid optimization to side-by-side comparisons.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h4>College Search</h4>
+                        <p>Search and filter through thousands of accredited colleges based on academics, location, size, costs, and the criteria that matter most to your family.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Financial Aid Optimizer</h4>
+                        <p>Calculate your Expected Family Contribution using federal methodology and discover strategies to maximize your aid eligibility.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>EFC Calculator</h4>
+                        <p>Understand your Expected Family Contribution before you apply. See how income, assets, and family size affect your eligibility.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>College Comparison</h4>
+                        <p>Put colleges side-by-side to see true net costs, graduation rates, and outcomes—not just sticker prices.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Scholarship Search</h4>
+                        <p>Access scholarship opportunities based on your student's profile, interests, achievements, and intended major.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Net Price Insights</h4>
+                        <p>See the real cost of college—not just sticker price. Understand what families like yours actually pay at each school.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Aid Appeal Guidance</h4>
+                        <p>Learn how to professionally appeal financial aid offers and potentially increase your package.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Decision Support</h4>
+                        <p>This is a life-changing decision. We help you weigh all factors—financial and otherwise—to make the right choice.</p>
+                    </div>
+                </div>
+
+                <div class="services-stats">
+                    <div class="service-stat purple">100% say we helped them stay <span class="highlight">organized</span></div>
+                    <div class="service-stat teal">95% felt more <span class="highlight">confident</span> about costs</div>
+                    <div class="service-stat dark">92% reported <span class="highlight">reduced stress</span></div>
+                    <div class="service-stat coral">98% would recommend us</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What Sets Us Apart -->
+        <section class="apart-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Sets Our College Funding Tools Apart</h2>
+                    <p>We demystify the college funding process, empowering families to take back control. We believe in clarity over confusion. Transparency over hidden costs. Real data over generic advice.</p>
+                </div>
+
+                <div class="apart-item">
+                    <div class="apart-text">
+                        <h3>Comprehensive Data Sources</h3>
+                        <p>No two families are the same. Our tools pull from official federal databases and institutional data to give you accurate, personalized insights. Whether you're exploring private schools or state universities, you get the real numbers.</p>
+                    </div>
+                    <div class="apart-image">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&h=350&fit=crop" alt="Student researching">
+                        <div class="stat-badge">
+                            <span class="value">99%</span>
+                            <span class="label">say we reduced<br>their stress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apart-item">
+                    <div class="apart-text">
+                        <h3>Personalized Guidance</h3>
+                        <p>We're more than just calculators—we're your trusted resource for understanding the complex world of college funding. We deliver insights through easy-to-use tools that work for your unique family situation.</p>
+                    </div>
+                    <div class="apart-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&h=350&fit=crop" alt="Family planning together">
+                        <div class="stat-badge">
+                            <span class="value">92%</span>
+                            <span class="label">would recommend<br>to a friend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apart-item">
+                    <div class="apart-text">
+                        <h3>All-in-One Platform</h3>
+                        <p>We're your one-stop resource for college planning. Search schools, calculate aid, compare costs, and understand your options—all in one place. No jumping between confusing websites.</p>
+                    </div>
+                    <div class="apart-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&h=350&fit=crop" alt="Students on campus">
+                        <div class="stat-badge">
+                            <span class="value">95%</span>
+                            <span class="label">felt more<br>confident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="apart-item">
+                    <div class="apart-text">
+                        <h3>Real Return on Your Time</h3>
+                        <p>College planning is a significant investment of time and energy. We're committed to delivering excellent value by helping families save money, focus efforts where they matter most, and make confident decisions.</p>
+                    </div>
+                    <div class="apart-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&h=350&fit=crop" alt="Graduation celebration">
+                        <div class="stat-badge">
+                            <span class="value">$50K+</span>
+                            <span class="label">average<br>savings found</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Us vs Them -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2>Have the Best College Funding Tools in Your Corner</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-col us">
+                        <h3>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect width="24" height="24" rx="6" fill="#1e3a5f"/>
+                                <path d="M12 6L6 9l6 3 6-3-6-3zM6 15l6 3 6-3M6 12l6 3 6-3" stroke="white" stroke-width="1.5" fill="none"/>
+                            </svg>
+                            College Funding Finders
+                        </h3>
+                        <ul class="comparison-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" class="check"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Comprehensive data from official federal and institutional sources
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="check"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Financial aid calculations aligned with federal methodology
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="check"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                No hidden fees—explore freely before committing
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="check"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Powered by experts with 10+ years of experience
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="check"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Caring guidance that puts families first
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comparison-col">
+                        <h3>Them</h3>
+                        <ul class="comparison-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" class="x"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/></svg>
+                                Outdated or incomplete college information
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="x"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/></svg>
+                                Confusing or inaccurate aid calculations
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="x"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/></svg>
+                                Paywalls that limit access to basic information
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="x"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/></svg>
+                                Generic advice that doesn't fit your situation
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" class="x"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2"/></svg>
+                                Overwhelming complexity without guidance
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="team-carousel">
+                    <div class="team-track">
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Expert Support</h4>
+                            <p>Financial Aid Specialist</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Trusted Advisors</h4>
+                            <p>College Planning Expert</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Data Analysts</h4>
+                            <p>Research Specialist</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Family Advocates</h4>
+                            <p>Support Coordinator</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Tech Innovators</h4>
+                            <p>Platform Developer</p>
+                        </div>
+                        <!-- Duplicates for infinite scroll -->
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Expert Support</h4>
+                            <p>Financial Aid Specialist</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Trusted Advisors</h4>
+                            <p>College Planning Expert</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Data Analysts</h4>
+                            <p>Research Specialist</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Family Advocates</h4>
+                            <p>Support Coordinator</p>
+                        </div>
+                        <div class="team-card">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Team member">
+                            <h4>Tech Innovators</h4>
+                            <p>Platform Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Do You Still Have Questions?</h2>
+                    <p>Schedule a consultation with us to get all of your answers; otherwise, here are some of the most asked questions.</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <h3>What is College Funding Finders?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>A <a href="https://www.collegiatefundingsolutions.com" target="_blank">college funding resource</a> is your guide through the college costs process. We offer personalized tools for building a college list, understanding financial aid, comparing costs, and every other step along the way.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How do I choose the right college planning resource?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Finding the right resource involves research. Look at the data sources and methodology, but also look at user testimonials. Compatibility is also key—you should feel confident the tools understand your goals and needs.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is College Funding Finders free to use?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, you can explore our college search tools and access general information at no cost. Some advanced features and personalized consultations may require registration, but basic exploration is completely free.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What's the difference between a high school counselor and these tools?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>High school counselors typically advise hundreds of students a year and tend to offer broad advice. Our tools, on the other hand, work with your specific situation and consider your family's unique financial circumstances.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Are college funding tools worth it?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Consider the average cost of a four-year college education—over $100,000 for many schools. Expert guidance during this crucial time will help you maximize financial aid, unlock scholarship opportunities, and make decisions that save you money down the line.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>When should I begin planning for college costs?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Junior year is when many families get serious about college planning, but starting as early as freshman year allows you to make strategic decisions about academics and finances. We firmly believe it's never too early to start planning for your future.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Form -->
+        <section class="cta-form-section" id="start">
+            <div class="container">
+                <div class="cta-form-grid">
+                    <div class="cta-form-content">
+                        <h2>Start Your College Funding Journey Today</h2>
+                        <p>College costs are complex, but planning doesn't have to be. Our tools help you cut through the confusion and find schools that fit—academically and financially.</p>
+                        
+                        <ul class="cta-checklist">
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Search 4,000+ accredited colleges
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Calculate your Expected Family Contribution
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+                                Compare net costs across schools
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="cta-form-box">
+                        <h3>Get Started Free</h3>
+                        <form id="ctaForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address</label>
+                                <input type="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>I am a...</label>
+                                <select required>
+                                    <option value="">Select one</option>
+                                    <option value="parent">Parent</option>
+                                    <option value="student">Student</option>
+                                    <option value="counselor">Counselor/Advisor</option>
+                                </select>
+                            </div>
+                            <div class="form-submit">
+                                <button type="submit" class="btn btn-primary">Start My Personalized College Plan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Other pages would go here (How It Works, Tools, FAQ, Contact) -->
+    <!-- Keeping them minimal for file size -->
+
+    <main class="page" id="page-how-it-works">
+        <section class="page-hero">
+            <div class="container">
+                <h1>How College Funding Finders Works</h1>
+                <p>A simple, guided approach to understanding college costs.</p>
+            </div>
+        </section>
+        <section class="page-section" style="text-align: center;">
+            <a href="https://www.collegiatefundingsolutions.com" target="_blank" class="btn btn-primary">Start My Personalized College Plan</a>
+        </section>
+    </main>
+
+    <main class="page" id="page-tools">
+        <section class="page-hero">
+            <div class="container">
+                <h1>College Planning Tools</h1>
+                <p>Access comprehensive resources to search, analyze, and compare colleges.</p>
+            </div>
+        </section>
+        <section class="page-section" style="text-align: center;">
+            <a href="https://www.collegiatefundingsolutions.com" target="_blank" class="btn btn-primary">Access Tools</a>
+        </section>
+    </main>
+
+    <main class="page" id="page-faq">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <p>Find answers to common questions about college planning.</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="page" id="page-contact">
+        <section class="page-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Have questions? We're here to help.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-text">College<span>Funding</span>Finders</span>
+                    <p>Helping families find the funding they need for college. Powered by Collegiate Funding Solutions—trusted by financial advisors and families nationwide.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="how-it-works">How It Works</a></li>
+                        <li><a href="#" data-page="tools">Tools</a></li>
+                        <li><a href="#" data-page="faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Tools</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.collegiatefundingsolutions.com" target="_blank">College Search</a></li>
+                        <li><a href="https://www.collegiatefundingsolutions.com" target="_blank">Financial Aid Optimizer</a></li>
+                        <li><a href="https://www.collegiatefundingsolutions.com" target="_blank">College Comparison</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@collegefundingfinders.com">info@collegefundingfinders.com</a></li>
+                        <li><a href="tel:5551234567">(555) 123-4567</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-cta">
+                <p>Don't navigate college costs alone.</p>
+                <a href="https://www.collegiatefundingsolutions.com" target="_blank" class="btn btn-primary">Start My Personalized College Plan</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 <a href="https://mosecreativ.com" target="_blank">MoseCreativ</a></p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Nav
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            document.getElementById('nav').classList.toggle('active');
+        });
+
+        // Page Navigation
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = link.dataset.page;
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.getElementById(`page-${pageId}`).classList.add('active');
+                document.getElementById('nav').classList.remove('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // FAQ
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Forms
+        document.getElementById('ctaForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            window.open('https://www.collegiatefundingsolutions.com', '_blank');
+        });
+    </script>
+</body>
+</html>
